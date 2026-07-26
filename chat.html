@@ -55,10 +55,63 @@ border-radius:20px;
 <div class="chat">
 <p><b>Umukunzi:</b> Muraho ❤️</p>
 
-<input type="text" placeholder="Andika ubutumwa...">
+<div id="messages"></div>
 
-<button>Ohereza</button>
-</div>
+<input id="msg" type="text" placeholder="Andika ubutumwa...">
+
+<button id="sendBtn">Ohereza</button>
+</div><script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+const firebaseConfig = {
+  apiKey: "AIzaSyCn_ns4nqZUb4iWB_G0xt4dzMTL3Zn1ROs",
+  authDomain: "kundwa-nawe.firebaseapp.com",
+  projectId: "kundwa-nawe",
+  storageBucket: "kundwa-nawe.firebasestorage.app",
+  messagingSenderId: "147699605597",
+  appId: "1:147699605597:web:e736c381cd43da7f666db4",
+  measurementId: "G-5NCWX0BM0H"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const messages = document.getElementById("messages");
+const msg = document.getElementById("msg");
+const sendBtn = document.getElementById("sendBtn");
+
+sendBtn.onclick = async () => {
+  if (msg.value.trim() === "") return;
+
+  await addDoc(collection(db, "messages"), {
+    text: msg.value,
+    user: "Umukoresha",
+    time: Date.now()
+  });
+
+  msg.value = "";
+};
+
+onSnapshot(collection(db, "messages"), (snapshot) => {
+  messages.innerHTML = "";
+
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+
+    messages.innerHTML += `
+      <div class="message">
+        <b>${data.user}:</b> ${data.text}
+      </div>
+    `;
+  });
+});
+
+</script>
 
 </body>
 </html>
