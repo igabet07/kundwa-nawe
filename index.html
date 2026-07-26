@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment - KUNDWA NAWE</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#fff0f5;
+margin:0;
+}
+
+.container{
+max-width:400px;
+margin:40px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px #ccc;
+}
+
+h2{
+text-align:center;
+color:#e91e63;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#e91e63;
+color:white;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>💳 Kwishyura</h2>
+
+<p><b>Amafaranga yo kwiyandikisha: 2,000 RWF</b></p>
+
+<form>
+
+<select>
+<option>Hitamo uburyo bwo kwishyura</option>
+<option>MTN MoMo</option>
+<option>Airtel Money</option>
+<option>Visa Card</option>
+</select>
+
+<input type="text" placeholder="Numero ya telefoni cyangwa ikarita">
+
+<button type="button" onclick="pay()">Komeza Wishyure</button>
+
+</form>
+
+</div>
+
+<script>
+function pay(){
+alert("Demo: Payment request sent.");
+}
+</script>
+
+</body>
+</html>
