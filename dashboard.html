@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard - KUNDWA NAWE</title>
 
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+    margin:0;
+}
+
+header{
+    background:#e91e63;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+}
+
+.card{
+    background:white;
+    margin-bottom:15px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px #ccc;
+}
+
+button{
+    background:#e91e63;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>KUNDWA NAWE - Admin Dashboard</h2>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h3>👥 Total Users</h3>
+<p>0 Users</p>
+</div>
+
+<div class="card">
+<h3>💳 Payments</h3>
+<p>0 Payments</p>
+</div>
+
+<div class="card">
+<h3>💬 Chats</h3>
+<p>0 Messages</p>
+</div>
+
+<div class="card">
+<h3>⚙️ Admin Actions</h3>
+
+<button onclick="alert('Feature coming soon')">
+View Users
+</button>
+
+<br><br>
+
+<button onclick="alert('Feature coming soon')">
+Approve Payments
+</button>
+
+<br><br>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</div>
+
+<script>
+function logout(){
+    window.location.href="admin.html";
+}
+</script>
+
+</body>
+</html>
