@@ -63,12 +63,11 @@ text-decoration:none;
 
 <form>
 
-<input type="email" placeholder="Andika Email yawe" required>
+<input id="email" type="email" placeholder="Andika Email yawe" required>
 
-<input type="password" placeholder="Andika Password" required>
+ <input id="password" type="password" placeholder="Andika Password" required>
 
-<button type="submit">Injira</button>
-
+<button type="button" id="loginBtn">Injira</button>
 </form>
 
 <p style="text-align:center;">
@@ -77,6 +76,40 @@ Nta konti ufite?
 </p>
 
 </div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCn_ns4nqZUb4iWB_G0xt4dzMTL3Zn1ROs",
+  authDomain: "kundwa-nawe.firebaseapp.com",
+  projectId: "kundwa-nawe",
+  storageBucket: "kundwa-nawe.firebasestorage.app",
+  messagingSenderId: "147699605597",
+  appId: "1:147699605597:web:e736c381cd43da7f666db4",
+  measurementId: "G-5NCWX0BM0H"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Winjiye neza!");
+      window.location.href = "profile.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+});
+
+</script>
 
 </body>
 </html>
